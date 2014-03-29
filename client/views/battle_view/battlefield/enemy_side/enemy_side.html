@@ -1,0 +1,16 @@
+<template name="enemySide">
+    <div id="enemy-side">
+        <div id="enemy">
+            <div class="life-bar">
+                {{TEMPLATE "fillingBar" currentValue=GetLifeCurrent maxValue=GetLifeMax}}
+                <p>
+                    {{GetLifeCurrent}}/{{GetLifeMax}}
+                </p>
+            </div>
+
+            <div class="enemy-sprite">
+                ENEMY
+            </div>
+        </div>
+    </div>
+</template>

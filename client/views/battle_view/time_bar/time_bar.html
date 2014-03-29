@@ -1,0 +1,31 @@
+<template name="timeBar">
+    <div id="time-bar">
+        {{TEMPLATE "timeBarMajorGraduation" value=5}}
+        {{TEMPLATE "timeBarMajorGraduation" value=10}}
+        {{TEMPLATE "timeBarMajorGraduation" value=15}}
+
+        {{#each GetEvents}}
+            {{TEMPLATE "timeBarEvent" event=this}}
+        {{/each}}
+        {{#each GetEnemyAttacks}}
+            {{TEMPLATE "battlefieldEnemyAttack" event=this}}
+        {{/each}}
+    </div>
+</template>
+<template name="timeBarMajorGraduation">
+    <div class="major-graduation" style="bottom:{{TimePercent value}}%;">
+        <div style="position:relative;bottom: -0.5em">
+            {{value}}
+        </div>
+    </div>
+</template>
+<template name="timeBarEvent">
+    <div class="event" style="bottom:{{TimePercent event.time}}%;">
+        coucou
+    </div>    
+</template>
+<template name="battlefieldEnemyAttack">
+    <div class="enemy-attack" style="left:-250%;">
+        
+    </div>    
+</template>

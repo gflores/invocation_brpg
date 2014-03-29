@@ -1,0 +1,39 @@
+<template name="characterControl">
+    <div id='character-control-box'>
+        <div id="life-bar">
+            {{TEMPLATE "fillingBar" currentValue=GetLifeCurrent maxValue=GetLifeMax}}
+            <p>
+                {{GetLifeCurrent}}/{{GetLifeMax}}
+            </p>
+        </div>
+        <div id='ability-box' class="elemental{{GetSelectedElementalTabIndex}}-colored-background">
+            <ul id="elemental-tabs">
+                {{#each ElementIndexes}}
+                    {{TEMPLATE "elementalTab" index=this}}
+                {{/each}}
+            </ul>
+            <ul id="ability-list">
+                {{#each GetAbilities}}
+                    <li class="ability{{index}}">{{name}} <span class="cost">{{cost}}</span></li>
+                {{/each}}
+            </ul>
+            <div id="ability-description">
+                {{#if ShowAbilityDescription}}
+                    <p>
+                        {{GetAbilityDescription}}
+                    </p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="elementalTab">
+    <li class='elemental{{index}}-colored-background elemental-tab{{index}}' {{IsSelected}}>
+<!--         <div class="mana-bar"></div> -->
+        <div class="mana-info"><p>{{GetElementalManaCurrent index}}/{{GetElementalManaMax index}}</p></div>
+        {{GetElementalName index}}
+
+
+    </li>
+</template>

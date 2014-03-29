@@ -1,0 +1,21 @@
+#time-bar{
+    position: absolute;
+    bottom: 0;
+    right: 0.5%;
+    width: 12%;
+    height: 97%;
+    border-width: 0.2em;
+    border-style: solid;
+    .major-graduation{
+        position: absolute;
+        border-width: 0 0 0.1em 0;
+        border-style: dashed;
+        width: 100%;
+    }
+    .event{
+        position:absolute;
+        border-width: 0 0 0.1em 0;
+        border-style: solid;
+    }
+
+}
