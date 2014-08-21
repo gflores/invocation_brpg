@@ -1,16 +1,28 @@
 <template name="playersSide">
     <div id="players-side">
         <div id="players">
-            {{TEMPLATE "battlefieldPlayer"}}
-            {{TEMPLATE "battlefieldPlayer"}}
-            {{TEMPLATE "battlefieldPlayer"}}
-            {{TEMPLATE "battlefieldPlayer"}}
+            {{> battlefieldPlayer index=3}}
+            {{> battlefieldPlayer index=1}}
+            {{> battlefieldPlayer index=0}}
+            {{> battlefieldPlayer index=2}}
         </div>
     </div>
 </template>
 
 <template name="battlefieldPlayer">
+    {{#if IsPlayerExisting}}
+        {{> battlefieldExistingPlayer player=GetCurrentPlayer}}
+    {{else}}
+        {{> battlefieldUnexistingPlayer player=GetCurrentPlayer}}
+    {{/if}}
+</template>
+<template name="battlefieldExistingPlayer">
     <div class="player">
-        toto
+        {{player.userId}}
+    </div>
+</template>
+<template name="battlefieldUnexistingPlayer">
+    <div class="player">
+        _
     </div>
 </template>

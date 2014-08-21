@@ -1,14 +1,14 @@
 <template name="timeBar">
     <div id="time-bar">
-        {{TEMPLATE "timeBarMajorGraduation" value=5}}
-        {{TEMPLATE "timeBarMajorGraduation" value=10}}
-        {{TEMPLATE "timeBarMajorGraduation" value=15}}
+        {{> timeBarMajorGraduation value=5}}
+        {{> timeBarMajorGraduation value=10}}
+        {{> timeBarMajorGraduation value=15}}
 
         {{#each GetEvents}}
-            {{TEMPLATE "timeBarEvent" event=this}}
+            {{> timeBarEvent event=this}}
         {{/each}}
         {{#each GetEnemyAttacks}}
-            {{TEMPLATE "battlefieldEnemyAttack" event=this}}
+            {{> battlefieldEnemyAttack event=this}}
         {{/each}}
     </div>
 </template>
@@ -20,8 +20,8 @@
     </div>
 </template>
 <template name="timeBarEvent">
-    <div class="event" style="bottom:{{TimePercent event.time}}%;">
-        coucou
+    <div class="event" style="bottom:{{TimePercentMillisecond event.time}}%;">
+        {{event.name}}
     </div>    
 </template>
 <template name="battlefieldEnemyAttack">

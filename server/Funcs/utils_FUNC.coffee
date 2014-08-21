@@ -15,9 +15,26 @@ define("utils_FUNC", [], () ->
     #         done(null, res)
     #     )
     #     response.result
+    RandomInt = (lower, upper=0) ->
+        start = Math.random()
+        if not lower?
+            [lower, upper] = [0, lower]
+        if lower > upper
+            [lower, upper] = [upper, lower]
+        return Math.floor(start * (upper - lower + 1) + lower)
+
+    GetRandomInArray = (array) ->
+        array[Math.floor(Math.random() * array.length)]
+
+    GetRandomInHash = (hash) ->
+        key = GetRandomInArray(Object.keys(hash))
+        [key, hash[key]]
+
     return {
         Wait: Wait
         LaunchAsync: LaunchAsync
-        # LaunchAndWait: LaunchAndWait
+        RandomInt: RandomInt
+        GetRandomInArray: GetRandomInArray
+        GetRandomInHash: GetRandomInHash
     }
 )
